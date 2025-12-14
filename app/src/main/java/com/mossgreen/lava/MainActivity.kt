@@ -1,8 +1,6 @@
 package com.mossgreen.lava
 
 import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
 import android.view.WindowManager
@@ -27,7 +25,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.core.app.NotificationManagerCompat
 import com.mossgreen.lava.music.MusicService
 import com.mossgreen.lava.ui.screens.MusicPlayerScreen
 import com.mossgreen.lava.ui.theme.LavaTheme

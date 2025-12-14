@@ -1,10 +1,8 @@
 package com.mossgreen.lava.music
 
 import android.content.ComponentName
-import android.content.Context
 import android.media.MediaMetadata
 import android.media.session.MediaController
-import android.media.session.MediaSession
 import android.media.session.PlaybackState
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
@@ -44,16 +42,8 @@ class MusicService : NotificationListenerService() {
     private fun checkActiveSessions() {
         try {
             val component = ComponentName(this, MusicService::class.java)
-            val controllers = getActiveNotifications()
-                .mapNotNull { 
-                    // This is a simplified check. Ideally we use MediaSessionManager 
-                    // but NotificationListenerService gives us access to sessions linked to notifs.
-                    // Actually, let's use the ActiveSessions API from NotificationListener.
-                    null 
-                }
             
-            // Correct approach: Use getActiveMediaSessions
-            // Note: Requires COMPONENT_ENABLED_STATE_ENABLED for the permission to be active
+            // Use getActiveMediaSessions API from NotificationListenerService
             val mediaSessions = try {
                 getActiveMediaSessions(component) 
             } catch (e: SecurityException) {
