@@ -1,2 +1,0 @@
-# Lava
-Music display.
